@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 24px;
+}
+
+main {
+  text-align: center;
+  margin-top: 15%;
+}
+
+main #kbdArea {
+  display: inline-block;
+}
+
+kbd {
+  border: 1px solid red;
+  border-radius: 8px;
+  display: inline-block;
+  height: 69px;
+  line-height: 69px;
+  width: 71px;
+  margin: 0 12px 12px 0;
+  text-transform: uppercase;
+  position: relative;
+}
+kbd > button {
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  font-size: 12px;
+  display: none;
+}
+kbd:hover > button {
+  display: inline-block;
+}
