@@ -9,7 +9,7 @@ var hash = {
   'w': 'weibo.com',
   'e': 'ele.me',
   'r': 'sns.renren.com',
-  't': 'tianya.com',
+  't': 'taobao.com',
   'y': 'youtube.com',
   'u': 'uc.cn',
   'i': 'iqiyi.com',
@@ -37,7 +37,7 @@ var iconSrc = {
   'w': 'weibo',
   'e': 'eleme',
   'r': 'renren',
-  't': 'tianya',
+  't': 'taobao',
   'y': 'youtube',
   'u': 'uc',
   'i': 'iqiyi',
@@ -62,8 +62,13 @@ var iconSrc = {
 }
 //发现localStorage变更，覆盖原hash
 var hashInLocalStorage = JSON.parse(localStorage.getItem('newPage') || 'null')
-if(hashInLocalStorage){
+var iconSrcInLocalStorage = JSON.parse(localStorage.getItem('newIcon') || 'null')
+
+if (hashInLocalStorage) {
   hash = hashInLocalStorage
+}
+if (iconSrcInLocalStorage) {
+  iconSrc = iconSrcInLocalStorage
 }
 //遍历keys，生成kbd标签
 for (var index = 0; index < keys.length; index++) {
@@ -79,23 +84,32 @@ for (var index = 0; index < keys.length; index++) {
     //添加图标
     var iconName = iconSrc[row[index2]]
     var icon = document.createElement('img')
-    if(iconName){
-      icon.src = './img/'+iconName+'.png'
+    icon.classList.add(row[index2] + '-img')
+    if (iconName) {
+      icon.src = './img/' + iconName + '.png'
     }
     //点击Edit，设置网址
-    editButton.onclick = function(e){
+    editButton.onclick = function (e) {
       keyID = e.target.id
       var webLocation = prompt('请输入网址')
       hash[keyID] = webLocation
+      //清除图标
+      if (webLocation) {
+        iconSrc[keyID] = ''
+        console.log(iconSrc)
+        var img = document.getElementsByClassName(keyID + '-img')[0].src = ''
+      }
       //localStorage变更
       localStorage.setItem('newPage', JSON.stringify(hash))
+      localStorage.setItem('newIcon', JSON.stringify(iconSrc))
     }
     kbds.appendChild(icon)
     kbds.appendChild(editButton)
     div1.appendChild(kbds)
   }
 }
-document.onkeypress = function(keyPress){
+
+document.onkeypress = function (keyPress) {
   var key = keyPress['key']
   var website = hash[key]
   window.open('http://' + website, '_blank')
