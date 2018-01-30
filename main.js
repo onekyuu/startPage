@@ -29,7 +29,7 @@ var hash = {
   'c': 'cctv.com',
   'v': 'weixin.qq.com',
   'b': 'bilibili.com',
-  'n': '',
+  'n': 'music.163.com',
   'm': 'xiaomi.com'
 }
 var iconSrc = {
@@ -57,7 +57,7 @@ var iconSrc = {
   'c': 'cctv',
   'v': 'weixin',
   'b': 'bilibili',
-  'n': '',
+  'n': 'neteasemusic',
   'm': 'xiaomi',
   '`': 'dot'
 }
