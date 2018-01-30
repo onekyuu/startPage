@@ -40,7 +40,7 @@ function init() {
     'z': 'zhihu.com',
     'x': 'xiami.com',
     'c': 'cctv.com',
-    'v': 'weixin.qq.com',
+    'v': 'wx.qq.com',
     'b': 'bilibili.com',
     'n': 'music.163.com',
     'm': 'xiaomi.com'
