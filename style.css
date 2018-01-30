@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 body {
@@ -11,14 +11,18 @@ body {
 
 main {
   text-align: center;
-  margin-top: 15%;
+  padding-top: 10%;
 }
 
 main #kbdArea {
   display: inline-block;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 40px 30px 30px 40px;
+  border-radius: 10px;
 }
 
 kbd {
+  font-family: Helvetica;
   border-radius: 8px;
   display: inline-block;
   height: 69px;
@@ -67,4 +71,40 @@ kbd>button {
 }
 kbd .y-img {
   bottom: -5px;
+}
+#canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#switch {
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-radius: 8px;
+  background-color: #000;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 20px 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  top: 30%;
+  left: 85%;
+  outline: none;
+}
+#switch .dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 12px;
+  background-color: #858585;
+  flex-direction: row;
+}
+#switch:active {
+  top: calc(30% + 2px);
+  box-shadow: 2px 0 2px rgba(0, 0, 0, 0.5);
 }

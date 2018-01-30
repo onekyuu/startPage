@@ -14,8 +14,8 @@ var hash = {
   'u': 'uc.cn',
   'i': 'iqiyi.com',
   'o': 'opera.com',
-  'p': 'pixiv.com',
-  'a': 'acfun.tv',
+  'p': 'pixiv.net',
+  'a': 'acfun.cn',
   's': 'sogou.com',
   'd': 'douban.com',
   'f': 'ifeng.com',
@@ -58,7 +58,8 @@ var iconSrc = {
   'v': 'v2ex',
   'b': 'bilibili',
   'n': '',
-  'm': 'xiaomi'
+  'm': 'xiaomi',
+  '`': 'dot'
 }
 //发现localStorage变更，覆盖原hash
 var hashInLocalStorage = JSON.parse(localStorage.getItem('newPage') || 'null')
@@ -87,17 +88,22 @@ for (var index = 0; index < keys.length; index++) {
     icon.classList.add(row[index2] + '-img')
     if (iconName) {
       icon.src = './img/' + iconName + '.png'
+    } else {
+      icon.src = './img/none.png'
     }
     //点击Edit，设置网址
     editButton.onclick = function (e) {
       keyID = e.target.id
       var webLocation = prompt('请输入网址')
       hash[keyID] = webLocation
-      //清除图标
+      console.log(webLocation === true)
+      //设置、清除图标
       if (webLocation) {
+        iconSrc[keyID] = 'dot'
+        var img = document.getElementsByClassName(keyID + '-img')[0].src = './img/dot.png'
+      } else {
         iconSrc[keyID] = ''
-        console.log(iconSrc)
-        var img = document.getElementsByClassName(keyID + '-img')[0].src = ''
+        var img = document.getElementsByClassName(keyID + '-img')[0].src = './img/none.png'
       }
       //localStorage变更
       localStorage.setItem('newPage', JSON.stringify(hash))
