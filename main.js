@@ -27,7 +27,7 @@ var hash = {
   'z': 'zhihu.com',
   'x': 'xiami.com',
   'c': 'cctv.com',
-  'v': 'v2ex.com',
+  'v': 'weixin.qq.com',
   'b': 'bilibili.com',
   'n': '',
   'm': 'xiaomi.com'
@@ -55,7 +55,7 @@ var iconSrc = {
   'z': 'zhihu',
   'x': 'xiami',
   'c': 'cctv',
-  'v': 'v2ex',
+  'v': 'weixin',
   'b': 'bilibili',
   'n': '',
   'm': 'xiaomi',
@@ -96,7 +96,6 @@ for (var index = 0; index < keys.length; index++) {
       keyID = e.target.id
       var webLocation = prompt('请输入网址')
       hash[keyID] = webLocation
-      console.log(webLocation === true)
       //设置、清除图标
       if (webLocation) {
         iconSrc[keyID] = 'dot'
