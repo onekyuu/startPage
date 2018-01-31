@@ -10,6 +10,8 @@ createKeyborad(keys, domain, iconSrc)
 //监听用户行为
 listenToUser(domain)
 
+switchLight()
+
 function init() {
   var keys = {
     '0': { '0': 'q', '1': 'w', '2': 'e', '3': 'r', '4': 't', '5': 'y', '6': 'u', '7': 'i', '8': 'o', '9': 'p', length: '10' },
@@ -91,6 +93,25 @@ function init() {
     'src': iconSrc
   }
 }
+function switchLight(){
+  switchButton = document.getElementById('switch')
+  span = document.getElementById('text')
+  canvas = document.getElementById('canvas')
+  kbdArea = document.getElementById('kbdArea')
+  switchButton.onclick = function(){
+    if(switchButton.classList.contains('dark')) {
+      switchButton.classList.remove('dark')
+      span.textContent = 'Light'
+      canvas.classList.remove('dark')
+      kbdArea.classList.remove('dark')
+    }else{
+      switchButton.classList.add('dark')
+      span.textContent = 'Dark'
+      canvas.classList.add('dark')
+      kbdArea.classList.add('dark')
+    }
+  }
+}
 
 function getFromLocalStorage(name) {
   return JSON.parse(localStorage.getItem(name) || 'null')
@@ -152,6 +173,7 @@ function createKeyborad(keys, domain, iconSrc) {
       var icon = createIcon(row[index2])
 
       var kbds = tag('kbd')
+      kbds.classList.add('kbd')
 
       kbds.innerText = row[index2]
       kbds.appendChild(icon)

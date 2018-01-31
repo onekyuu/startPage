@@ -75,6 +75,7 @@ kbd>button {
   width: 100%;
   height: 100%;
 }
+
 #switch {
   border-top-style: none;
   border-right-style: none;
@@ -94,7 +95,8 @@ kbd>button {
   left: 85%;
   outline: none;
 }
-#switch .dot{
+
+#switch .dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -102,7 +104,16 @@ kbd>button {
   background-color: #858585;
   flex-direction: row;
 }
+
 #switch:active {
   top: calc(30% + 2px);
   box-shadow: 2px 0 2px rgba(0, 0, 0, 0.5);
+}
+
+canvas.dark {
+  background-color: #353535;
+  z-index: -1;
+}
+#kbdArea.dark {
+  background-color: rgba(0, 0, 0, 0.4);
 }
